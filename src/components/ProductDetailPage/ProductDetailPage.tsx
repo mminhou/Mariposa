@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import ProductName from './ProductName';
@@ -9,21 +9,48 @@ import ProductStatus from './ProductStatus';
 import useCartStore from '../../stores/useCartStore';
 import ProductDescription from './ProductDescription';
 
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  imgUrl: string;
+};
+
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
-  const productId = parseInt(id || '1', 10); // 기본값 1로 처리
-  const location = useLocation();
-  const product = location.state;
-
+  const navigate = useNavigate();
+  const { addItem } = useCartStore();
+  const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1); // 수량 상태 관리
   const [shippingFee, setShippingFee] = useState(3000); // 기본 배송비 3000원
 
-  const { addItem } = useCartStore();
+  useEffect(() => {
+    /**
+     * 임시코드 -> 나중에 api에서 데이터 가져올 때 수정할 것
+     */
+    if (!id) {
+      navigate('/'); // 상품이 없으면 홈으로 리디렉션
+    } else {
+      if (Number(id) > 50) {
+        // 상품이 없는경우 예외처리로 null값 임시할당
+        setProduct(null);
+      } else {
+        const product = {
+          id: Number(id + 1),
+          name: `Product ${id + 1}`,
+          price: Number(id) * 1000, // price를 숫자 타입으로 설정
+          imgUrl:
+            'https://madeleesul.blogpay.io/img/g/madeleesul/0470347001732766430.jpg',
+        };
 
-  // 가격 * 수량 계산
-  const totalPrice = product.price * quantity;
+        setProduct(product); // state에서 상품을 가져옴
+      }
+    }
+  }, [id, navigate]); // dependency array에 location.state와 navigate 추가
 
   // 배송비 계산
+  const totalPrice = product ? product.price * quantity : 0; // 가격 * 수량 계산
+
   useEffect(() => {
     if (totalPrice >= 70000) {
       setShippingFee(0); // 70,000원 초과 시 배송비 무료
@@ -32,25 +59,25 @@ const ProductDetailPage = () => {
     }
   }, [totalPrice]); // totalPrice가 변경될 때마다 배송비를 계산
 
-  // 주문 처리 함수
-  const handleOrder = () => {
-    console.log(`Ordered ${quantity} of ${product.name}`);
-    console.log(`Total Price: ${totalPrice}, Shipping Fee: ${shippingFee}`);
-    // 여기에 실제 주문 처리 로직을 추가
-  };
-
   // 카트 처리 함수
   const handleAddItem = () => {
-    const newItem = {
-      id: product.id,
-      imgUrl: product.imgUrl,
-      name: product.name,
-      price: product.price,
-      quantity: quantity,
-    };
-    addItem(newItem);
-    alert('장바구니에 상품을 담았습니다.');
+    if (product) {
+      const newItem = {
+        id: product.id,
+        imgUrl: product.imgUrl,
+        name: product.name,
+        price: product.price,
+        quantity: quantity,
+      };
+      addItem(newItem);
+      alert('장바구니에 상품을 담았습니다.');
+    }
   };
+
+  // 제품이 없는경우
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   return (
     <div className="container mx-auto px-4">
@@ -90,10 +117,10 @@ const ProductDetailPage = () => {
               </button>
             </div>
           </div>
-          {/* 상품 상세정보 */}
-          <ProductDescription />
         </div>
       </div>
+      {/* 상품 상세정보 */}
+      <ProductDescription />
     </div>
   );
 };
