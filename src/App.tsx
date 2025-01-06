@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import MainPage from './components/MainPage/MainPage';
 import AppRouter from './routes/AppRouter';
+import Navbar from './components/Navbar/Navbar';
+import Topbar from './components/Navbar/Topbar';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <div className="hidden md:block h-8 bg-gray-100"></div>
-        <NavBar />
+        <Topbar />
+        <Navbar />
         <AppRouter />
       </div>
     </Router>

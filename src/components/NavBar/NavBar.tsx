@@ -5,7 +5,7 @@ import useSidebarStore from '../../stores/useSidebarStore';
 import Sidebar from './Sidebar';
 import useCartStore from '../../stores/useCartStore';
 
-const NavBar = () => {
+const Navbar = () => {
   const { toggleSidebar, closeSidebar } = useSidebarStore();
   const [isScroll, setIsScroll] = useState(false);
   const { items } = useCartStore();
@@ -27,8 +27,8 @@ const NavBar = () => {
     <nav
       className={`bg-white ${
         isScroll
-          ? 'p-3 md:pl-32 md:pr-32 fixed top-0 w-full'
-          : 'p-3 md:p-10 md:pl-32 md:pr-32 relative'
+          ? 'p-3 lg:pl-32 lg:pr-32 fixed top-0 w-full'
+          : 'p-3 md:p-10 lg:pl-32 lg:pr-32 relative'
       } sticky top-0 z-50 border-b border-b-gray-200`}
     >
       <div className="max-w-10xl mx-auto flex justify-between items-center">
@@ -108,4 +108,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

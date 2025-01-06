@@ -14,9 +14,12 @@ const Sidebar = () => {
         <h2 className="text-2xl font-semibold mb-4">Menu</h2>
         <ul className="space-y-4">
           <li onClick={toggleSidebar}>
-            <a href="#" className="text-gray-800 hover:text-blue-500">
+            <p
+              className="text-gray-800 hover:text-blue-500"
+              onClick={() => closeSidebar}
+            >
               x
-            </a>
+            </p>
           </li>
           <li>
             <a href="#" className="text-gray-800 hover:text-blue-500">
