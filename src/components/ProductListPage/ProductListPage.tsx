@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { Product } from '../../types/types';
 
 // 샘플대이터
 const products: Product[] = Array.from({ length: 50 }, (_, i) => ({

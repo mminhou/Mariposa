@@ -8,13 +8,7 @@ import ProductQuantity from './ProductQuantity';
 import ProductStatus from './ProductStatus';
 import useCartStore from '../../stores/useCartStore';
 import ProductDescription from './ProductDescription';
-
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { Product } from '../../types/types';
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
