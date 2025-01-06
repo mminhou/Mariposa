@@ -41,7 +41,7 @@ const NavBar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="size-7"
+              className="size-6 md:size-7"
             >
               <path
                 stroke-linecap="round"
@@ -61,7 +61,7 @@ const NavBar = () => {
         </Link>
 
         {/* 오른쪽 네비게이션 메뉴 */}
-        <div className="flex space-x-3 md:space-x-5">
+        <div className="flex space-x-3 md:space-x-5 items-center">
           <Link to="/cart" className="relative inline-block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const NavBar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="size-7"
+              className="size-6 md:size-7"
             >
               <path
                 stroke-linecap="round"
@@ -90,7 +90,7 @@ const NavBar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="size-7"
+              className="size-6 md:size-7"
             >
               <path
                 stroke-linecap="round"
