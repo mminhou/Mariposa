@@ -12,12 +12,6 @@ function App() {
         <div className="hidden md:block h-8 bg-gray-100"></div>
         <NavBar />
         <AppRouter />
-        <div className="h-32 bg-white-500">고정된 높이</div>
-        <div className="h-32 bg-white-500">고정된 높이</div>
-        <div className="h-32 bg-white-500">고정된 높이</div>
-        <div className="h-32 bg-white-500">고정된 높이</div>
-        <div className="h-32 bg-white-500">고정된 높이</div>
-        <div className="h-32 bg-white-500">고정된 높이</div>
       </div>
     </Router>
   );
