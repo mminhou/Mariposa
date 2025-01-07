@@ -5,13 +5,21 @@ import LoginPage from '../components/LoginPage/LoginPage';
 import CartPage from '../components/CartPage/CartPage';
 import ProductDetailPage from '../components/ProductDetailPage/ProductDetailPage';
 import SignUpPage from '../components/SignUpPage/SignUpPage';
+import ProtectedRoute from './ProtectedRoute';
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route
+        path="/cart"
+        element={
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/products/:id" element={<ProductDetailPage />} />
       <Route path="register" element={<SignUpPage />} />
 

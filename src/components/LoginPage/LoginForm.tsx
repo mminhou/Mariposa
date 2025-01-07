@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useUserStore from '../../stores/useUserStore';
+import useAuthStore from '../../stores/useAuthStore';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [rememberId, setRememberId] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const { setUser } = useUserStore(); // userStore에서 setUser를 가져옴
+  const { login } = useAuthStore();
 
   // 컴포넌트가 마운트될 때 localStorage에서 저장된 아이디 불러오기
   useEffect(() => {
@@ -31,7 +35,7 @@ const LoginForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
     // 간단한 유효성 검사
@@ -49,18 +53,31 @@ const LoginForm = () => {
       localStorage.setItem('rememberedUserId', userId);
     }
 
-    // 로그인 성공 처리 (예: 서버 API 호출)
-    console.log('로그인 시도:', { userId, password, rememberId });
+    // 실제 로그인 API 호출 예시 (여기서는 가짜 로그인 처리)
+    if (userId === 'test' && password === '123') {
+      // 1. 로그인 API 요청 -> Todos
+      const userData = {
+        userId: 'test',
+        name: '최민호',
+        email: 'alsgh1003@hanmail.net',
+      };
 
-    // 에러 초기화 및 후속 처리
-    setError('');
-    alert('로그인 성공!');
-    navigate('/');
+      // 2. authStore에 토큰 저장
+      login('token');
+
+      // 3. 로그인 성공 시 userStore에 유저 정보 저장
+      setUser(userData);
+      alert('로그인 성공!');
+      navigate('/');
+    } else {
+      setError('Error!');
+      alert('잘못된 아이디 또는 비밀번호입니다.');
+    }
   };
 
   return (
     <div className="w-full mx-auto justify-center items-center">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div className="mb-4">
           <label
             htmlFor="userId"
