@@ -45,7 +45,9 @@ const CartListItem = ({ idx, item, calcPrice }: CartListItemProps) => {
             <Link to={`/products/${item.id}`} state={item}>
               <p className="text-sm text-left">
                 미니베어 딱핀
-                {item.name}
+                / 상품이름 {item.name}
+                / 상품 아이디 {item.id}
+                
               </p>
             </Link>
           </div>

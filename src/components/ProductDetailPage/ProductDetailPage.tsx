@@ -30,8 +30,8 @@ const ProductDetailPage = () => {
         setProduct(null);
       } else {
         const product = {
-          id: Number(id + 1),
-          name: `Product ${id + 1}`,
+          id: Number(id),
+          name: `Product ${id}`,
           price: Number(id) * 1000, // price를 숫자 타입으로 설정
           imgUrl:
             'https://madeleesul.blogpay.io/img/g/madeleesul/0470347001732766430.jpg',
