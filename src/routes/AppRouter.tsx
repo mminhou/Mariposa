@@ -4,6 +4,7 @@ import MainPage from '../components/MainPage/MainPage';
 import LoginPage from '../components/LoginPage/LoginPage';
 import CartPage from '../components/CartPage/CartPage';
 import ProductDetailPage from '../components/ProductDetailPage/ProductDetailPage';
+import SignUpPage from '../components/\bSignUpPage/SignUpPage';
 
 const AppRouter = () => {
   return (
@@ -12,6 +13,7 @@ const AppRouter = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/products/:id" element={<ProductDetailPage />} />
+      <Route path="register" element={<SignUpPage />} />
 
       {/* 404 처리 */}
       <Route path="*" element={<Navigate to="/" replace />} />

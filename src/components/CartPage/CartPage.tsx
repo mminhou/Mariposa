@@ -6,12 +6,8 @@ import CartListItem from './CartListItem';
 import CalculateCart from './CalculateCart';
 
 const CartPage = () => {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const { items, addItem, updateQuantity, removeItem } = useCartStore();
+  const { items } = useCartStore();
   const calcPrice = useCartStore((state) => state.totalPrice());
-  debugger;
   // const handleAddItem = () => {
   //   const newItem = {
   //     id: Math.random(), // 임시 id로 랜덤 값 사용
