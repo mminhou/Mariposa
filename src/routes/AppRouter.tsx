@@ -4,7 +4,7 @@ import MainPage from '../components/MainPage/MainPage';
 import LoginPage from '../components/LoginPage/LoginPage';
 import CartPage from '../components/CartPage/CartPage';
 import ProductDetailPage from '../components/ProductDetailPage/ProductDetailPage';
-import SignUpPage from '../components/\bSignUpPage/SignUpPage';
+import SignUpPage from '../components/SignUpPage/SignUpPage';
 
 const AppRouter = () => {
   return (
