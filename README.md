@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# Mariposa Shopping Mall Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Mariposa is a modern and user-friendly online shopping mall that offers a seamless shopping experience. The project leverages cutting-edge technologies like React, TypeScript, and TailwindCSS to provide a responsive and aesthetically pleasing interface. The backend is powered by Node.js ensuring robust and scalable performance.
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **User Authentication**: Secure login and registration system with JWT-based authentication.
+- **Shopping Cart**: Add, remove, and update products in the cart.
+- **Order Management**: Place and track orders with real-time status updates.
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Frontend
 
-### `yarn test`
+- React
+- TypeScript
+- TailwindCSS
+- Zustand (for state management)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `yarn build`
+- Node.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Others
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ESLint & Prettier (for code quality)
+- GitHub Actions (for CI/CD)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `yarn eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Node.js (>= 16.x)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Steps
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:mminhou/Mariposa.git
+   cd mariposa
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Install dependencies for both frontend and backend:
+   ```bash
+   cd mariposa
+   yarn install
+   cd ../backend
+   yarn install
+   ```
 
-## Learn More
+3. Set up environment variables:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - Create a `.env` file in the `backend` directory with the following:
+     ```env
+     ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Start the development servers:
+   ```bash
+   # In one terminal, start the backend
+   cd backend
+   yarn dev
+
+   # In another terminal, start the frontend
+   cd frontend
+   yarn start
+   ```
+
+5. Access the application at `http://localhost:3000`.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For questions or feedback, please contact us at exit19093@gmail.com.
+
