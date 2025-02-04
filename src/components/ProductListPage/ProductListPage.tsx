@@ -22,8 +22,8 @@ const ProductListPage = () => {
     <div className="p-4 lg:px-32">
       <h1 className="text-2xl font-bold mb-4">Product List</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {products.slice(0, visibleCount).map((product) => (
-          <Link to={`/products/${product.id}`} state={product}>
+        {products.slice(0, visibleCount).map((product, idx) => (
+          <Link key={idx} to={`/products/${product.id}`} state={product}>
             <div key={product.id}>
               <img
                 src={product.imgUrl}

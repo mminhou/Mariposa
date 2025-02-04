@@ -44,10 +44,7 @@ const CartListItem = ({ idx, item, calcPrice }: CartListItemProps) => {
           <div className="w-1/2">
             <Link to={`/products/${item.id}`} state={item}>
               <p className="text-sm text-left">
-                미니베어 딱핀
-                / 상품이름 {item.name}
-                / 상품 아이디 {item.id}
-                
+                미니베어 딱핀 / 상품이름 {item.name}/ 상품 아이디 {item.id}
               </p>
             </Link>
           </div>
@@ -84,9 +81,9 @@ const CartListItem = ({ idx, item, calcPrice }: CartListItemProps) => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M1 1h16"
                     />
                   </svg>
@@ -128,9 +125,9 @@ const CartListItem = ({ idx, item, calcPrice }: CartListItemProps) => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M9 1v16M1 9h16"
                     />
                   </svg>

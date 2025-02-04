@@ -1,6 +1,34 @@
 const texts = {
-  agreements: {
-    agreeToPricy: `
+  show: '보기',
+  showMore: '더보기',
+  serviceUnavailable: '서비스 준비중입니다.',
+  login: {
+    id: '아이디',
+    password: '패스워드',
+    title: '로그인',
+    emptyPassword: '비밀번호를 입력해주세요.',
+    emptyId: '아이디를 입력해주세요.',
+    saveIdLabel: '아이디 저장',
+    forgotPassword: '비밀번호를 잊으셨나요?',
+    failureMessage: '잘못된 아이디 또는 비밀번호입니다.',
+  },
+  logout: {
+    title: '로그아웃',
+  },
+  mypage: {
+    title: '마이페이지',
+  },
+  cart: {
+    title: '장바구니',
+  },
+  signup: {
+    title: '회원가입',
+    termsAgreement: '약관에 동의해주세요.',
+    agreeTo14Plus: '만 14세 이상 가입 동의',
+    agreeToPrivacy: {
+      title: '이용약관 동의',
+      subTitle: '이용약관',
+      content: `
 표준약관 제10023호
 
 (2015. 6. 26. 개정) 
@@ -172,7 +200,11 @@ const texts = {
 
   
 부 칙(시행일) 이 약관은 2025년 1월 1일부터 시행합니다.`,
-    agreeToTermsOfService: `
+    },
+    agreeToTermsOfService: {
+      title: '개인정보처리방침 동의',
+      subTitle: '개인정보처리방침',
+      content: `
 ■ 수집하는 개인정보 항목
 회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
 ο 수집항목 : 이름 , 생년월일 , 성별 , 로그인ID , 비밀번호 , 비밀번호 질문과 답변 , 자택 전화번호 , 자택 주소 , 휴대전화번호 , 이메일 , 직업 , 회사명 , 부서 , 직책 , 회사전화번호 , 취미 , 결혼여부 , 기념일 , 법정대리인정보 , 주민등록번호 , 서비스 이용기록 , 접속 로그 , 접속 IP 정보 , 결제기록
@@ -190,14 +222,7 @@ const texts = {
 ■ 개인정보의 보유 및 이용기간
 
 회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.`,
-  },
-  login: {
-    button: '로그인하기',
-    forgotPassword: '비밀번호를 잊으셨나요?',
-  },
-  signup: {
-    button: '회원가입하기',
-    termsAgreement: '약관에 동의해주세요.',
+    },
   },
   errorMessages: {
     requiredField: '이 필드는 필수입니다.',

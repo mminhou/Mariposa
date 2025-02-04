@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useUserStore from '../../stores/useUserStore';
 import useAuthStore from '../../stores/useAuthStore';
+import texts from '../../constants/texts';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -40,11 +41,11 @@ const LoginForm = () => {
 
     // 간단한 유효성 검사
     if (!userId) {
-      setError('아이디를 입력해주세요.');
+      setError(texts.login.emptyId);
       return;
     }
     if (!password) {
-      setError('비밀번호를 입력해주세요.');
+      setError(texts.login.emptyPassword);
       return;
     }
 
@@ -71,7 +72,7 @@ const LoginForm = () => {
       navigate('/');
     } else {
       setError('Error!');
-      alert('잘못된 아이디 또는 비밀번호입니다.');
+      alert(texts.login.failureMessage);
     }
   };
 
@@ -89,7 +90,7 @@ const LoginForm = () => {
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
             className="mt-1 block w-full px-3 py-2 border-b border-gray-300 focus:border-gray-600 focus:border-b-2 focus:outline-none focus:ring-0 placeholder:text-sm"
-            placeholder="아이디"
+            placeholder={texts.login.id}
           />
         </div>
 
@@ -105,7 +106,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full px-3 py-2 border-b border-gray-300 focus:border-gray-600 focus:border-b-2 focus:outline-none focus:ring-0 placeholder:text-sm"
-            placeholder="비밀번호"
+            placeholder={texts.login.password}
           />
         </div>
 
@@ -122,9 +123,9 @@ const LoginForm = () => {
               className={`${rememberId ? 'fill-black-500' : 'fill-gray-300'} size-6`}
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
 
@@ -132,7 +133,7 @@ const LoginForm = () => {
               htmlFor="rememberId"
               className="ml-2 text-sm text-gray-400 font-medium"
             >
-              아이디 저장
+              {texts.login.saveIdLabel}
             </label>
           </div>
           <div className="w-1/2">
@@ -151,7 +152,7 @@ const LoginForm = () => {
           type="submit"
           className="w-full p-4 mt-8 bg-gray-800 text-white text-sm font-bold rounded-md border border-gray-800"
         >
-          로그인
+          {texts.login.title}
         </button>
       </form>
     </div>

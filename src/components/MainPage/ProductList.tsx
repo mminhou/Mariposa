@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import texts from '../../constants/texts';
 
 // 샘플 제품 데이터
 const products = Array.from({ length: 50 }, (_, i) => ({
@@ -39,7 +40,7 @@ const ProductList = () => {
           onClick={handleLoadMore}
           className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-          Load More
+          {texts.showMore}
         </button>
       )}
     </div>

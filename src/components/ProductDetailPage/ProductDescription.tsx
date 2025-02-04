@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import texts from '../../constants/texts';
 
 const ProductDescription = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -11,9 +12,8 @@ const ProductDescription = () => {
       <div className="border-b border-b-gray-200">
         <ul className="flex items-center text-sm">
           {tabs.map((tab, index) => (
-            <li className="flex-1">
+            <li key={index} className="flex-1">
               <p
-                key={index}
                 onClick={() => setSelectedTab(index)}
                 className={`
                 relative flex items-center justify-center gap-2 px-1 py-3 text-gray-700 
@@ -47,20 +47,20 @@ const ProductDescription = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1"
+                strokeWidth="1"
                 stroke="currentColor"
                 className="size-14 text-gray-400"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
                 />
               </svg>
             </div>
 
             <p className="p-20 pt-3 text-sm text-gray-400">
-              서비스 준비중입니다.
+              {texts.serviceUnavailable}
             </p>
           </div>
         )}
