@@ -1,48 +1,25 @@
 import React from 'react';
 import useSidebarStore from '../../stores/useSidebarStore';
 
-const Sidebar = () => {
-  const { isOpen, toggleSidebar, closeSidebar } = useSidebarStore();
+interface SidebarProps {
+  isScroll: boolean;
+}
+
+const Sidebar = ({ isScroll }: SidebarProps) => {
+  const { isOpen } = useSidebarStore();
 
   return (
-    <div
-      className={`fixed left-0 top-0 w-64 h-full bg-white shadow-lg transform ${
-        isOpen ? 'block' : 'hidden'
-      } transition-transform duration-300 ease-in-out z-50`}
-    >
-      <div className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Menu</h2>
-        <ul className="space-y-4">
-          <li onClick={toggleSidebar}>
-            <p
-              className="text-gray-800 hover:text-blue-500"
-              onClick={() => closeSidebar}
-            >
-              x
-            </p>
-          </li>
-          <li>
-            <a href="#" className="text-gray-800 hover:text-blue-500">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-800 hover:text-blue-500">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-800 hover:text-blue-500">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-800 hover:text-blue-500">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div>
+      {isOpen && (
+        <div
+          className={`absolute left-0 w-full mt-10 bg-white shadow-lg border p-4 rounded-md ${
+            isScroll ? 'mt-3' : 'mt-10'
+          }`}
+        >
+          <p>Sidebar content</p>
+          <p>카테고리 / 게시판 / 마이페이지 등</p>
+        </div>
+      )}
     </div>
   );
 };

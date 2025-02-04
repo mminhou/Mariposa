@@ -103,7 +103,7 @@ const Navbar = () => {
       </div>
 
       {/* 사이드메뉴 토글 */}
-      <Sidebar />
+      <Sidebar isScroll={isScroll} />
     </nav>
   );
 };
